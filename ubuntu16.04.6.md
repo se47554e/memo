@@ -14,6 +14,8 @@ netmask 255.255.255.0
 gateway 192.168.0.1
 dns-nameservers 192.168.0.1
 ```
+> ファイルをいじらなくても、GUIで変更可？
+
 
 * ホームディレクトリ配下の日本語ファイルを英語化しておく。好みの問題。再起動時、毎回日本語に戻すか聞かれるかも。
 ```
@@ -44,20 +46,20 @@ sudo apt-get update
 # sudo apt-get install cuda
 sudo apt-get install cuda-9.0
 ```
-
+* パスを通す
 ```
 echo -e "\n## CUDA and cuDNN paths"  >> ~/.bashrc
 echo 'export PATH=/usr/local/cuda-9.0/bin:${PATH}' >> ~/.bashrc
 echo 'export LD_LIBRARY_PATH=/usr/local/cuda-9.0/lib64:${LD_LIBRARY_PATH}' >> ~/.bashrc
 source ~/.bashrc
-
+```
+* PC再起動
+```
 echo $PATH             # 出力に"/usr/local/cuda-9.0/bin"が含まれているか？
 echo $LD_LIBRARY_PATH  # 出力に"/usr/local/cuda-9.0/lib64"が含まれているか？
 which nvcc             # 出力が"/usr/local/cuda-9.0/bin/nvcc"になっているか？
 nvidia-smi             # nvidiaのGPUの情報が表示されているか？
-
 ```
-* CPU情報が表示されない場合は**1回再起動**したら読み込むかも
 * 表示されない場合はNVIDIAドライバの更新？ 参考サイト 
 http://www.nvidia.com/Download/index.aspx?lang=en-us
 
